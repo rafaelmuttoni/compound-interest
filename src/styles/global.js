@@ -65,6 +65,15 @@ const GlobalStyles = createGlobalStyle`
     height: auto;
   }
 
+  body.light {
+    --background: #F0F0F3;
+    --texts: #21222C;
+  }
+
+  body.dark {
+    --background: #21222C;
+    --texts: #F0F0F3;
+  }
 
 `
 
