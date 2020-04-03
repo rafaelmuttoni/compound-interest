@@ -11,4 +11,7 @@ export const LayoutMain = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background: var(--background);
+  color: var(--texts);
 `
