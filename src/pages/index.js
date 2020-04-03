@@ -2,11 +2,12 @@ import React from "react"
 
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
+import Calculator from "../components/Calculator"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>This is Muttoni's starter for Gatsby Projects.</h1>
+    <Calculator />
   </Layout>
 )
 
