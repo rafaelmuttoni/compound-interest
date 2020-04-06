@@ -6,7 +6,7 @@ import Calculator from "../components/Calculator"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
+    <SEO/>
     <Calculator />
   </Layout>
 )
