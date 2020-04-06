@@ -10,7 +10,8 @@ class Calculator extends React.Component {
       aporte: '',
       taxa: '',
       prazo: '',
-      resultado: ''
+      resultado: '',
+      hidden: true
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -42,7 +43,7 @@ class Calculator extends React.Component {
       montante += aporte
     }
     const montanteEmReais = montante.toLocaleString('pt-BR',{style: 'currency', currency:'BRL'})
-    this.setState({resultado: montanteEmReais})
+    this.setState({resultado: montanteEmReais, hidden: false})
   }
 
   handleTaxa(e) {
@@ -88,56 +89,63 @@ class Calculator extends React.Component {
     return (
       <S.CalculatorWrapper>
         <S.CalculatorForm>
-          Valor Inicial
-          <input 
+          <label>Valor Inicial</label>
+          <S.CalculatorInput 
             type="number" 
-            placeHolder="Valor Inicial" 
+            placeHolder="Valor Inicial"
+            title="Seu aporte inicial" 
             onChange={this.handleChange} 
             value={this.state.valorInicial} 
             name="valorInicial" />
-          Aporte Mensal   
-          <input 
+          <label>Aporte Mensal</label> 
+          <S.CalculatorInput 
             type="number" 
-            placeHolder="Aporte Mensal" 
+            placeHolder="Aporte Mensal"
+            title="Valor que você investe todo mês" 
             onChange={this.handleChange} 
             value={this.state.aporte} 
             name="aporte" />
-          Taxa mensal
-          <input 
+          <label>Taxa mensal</label>
+          <S.CalculatorInput 
             type="number" 
             placeHolder="Taxa mensal"
+            title="Rentabilidade mensal"
             value={this.state.taxa}
             onChange={this.handleTaxa}
             name="taxa" />
-          Taxa anual
-          <input 
+          <label>Taxa anual</label>
+          <S.CalculatorInput 
             type="number" 
-            placeHolder="Taxa anual" 
+            placeHolder="Taxa anual"
+            title="Rentabilidade anual" 
             onChange={this.handleTaxaAno}
             name="taxaAnual"
-            ref={this.taxaAnoInput} />
-          Prazo em meses
-          <input 
+            ref={this.taxaAnoInput} />        
+          <label>Prazo em meses</label>
+          <S.CalculatorInput 
             type="number" 
-            placeHolder="Prazo em meses" 
+            placeHolder="Prazo em meses"
+            title="Prazo do investimento em meses" 
             onChange={this.handleMonthDate} 
             value={this.state.prazo} 
             name="prazo" />
-          Prazo em anos
-          <input 
+          <label>Prazo em anos</label>
+          <S.CalculatorInput 
             type="number" 
-            placeHolder="Prazo em anos" 
+            placeHolder="Prazo em anos"
+            title="Prazo do investimento em anos" 
             onChange={this.handleYearDate} 
             name="prazoAnual"
             ref={this.yearDateInput} />
-          Até data específica
-          <input 
-            type="date" 
+          <label>Até data específica</label>
+          <S.CalculatorInput 
+            type="date"
+            title="Prazo do investimento com data específica" 
             onChange={this.handleSpecificDate} 
             ref={this.specificDateInput}/>
-          <button onClick={this.handleClick}>Calcular</button>   
+          <S.CalculatorButton onClick={this.handleClick}>Calcular</S.CalculatorButton>   
         </S.CalculatorForm>
-        <S.ResultSentence>Parabéns, você terá {this.state.resultado}</S.ResultSentence>
+        {this.state.hidden ? null : <S.ResultSentence>Total acumulado: {this.state.resultado}</S.ResultSentence>}
       </S.CalculatorWrapper>
     )
   }
