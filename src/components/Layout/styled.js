@@ -13,5 +13,5 @@ export const LayoutMain = styled.main`
   align-items: center;
 
   background: var(--background);
-  color: var(--texts);
+  color: var(--text);
 `
