@@ -2,7 +2,7 @@
 
 ### A compound interest calculator for your long term investments.
 
-Ps.: The website is made for the Brazilian public 🇧🇷, currently it's in PT-BR only.
+Ps.: The website is currently in PT-BR only.
 
 #### Technologies used: 
 
