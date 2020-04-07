@@ -5,7 +5,7 @@ export const NavbarWrapper = styled.nav`
   ${media.greaterThan('large')`
     top: 0;
     width: 100vw;
-    height: 8vh;
+    height: 5rem;
   `}
 
   ${media.lessThan('large')`
